@@ -1,0 +1,361 @@
+.mReview-card-wrapper {
+  position: relative;
+}
+
+.mReview-post-card {
+  position: relative;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background: #fff;
+  margin: 1rem 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.mReview-card-options {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 5;
+}
+
+.mReview-card-options-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.mReview-card-dropdown {
+  position: absolute;
+  top: 30px;
+  right: -20px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.mReview-card-dropdown button {
+  padding: 10px 14px;
+  border: none;
+  background: none;
+  text-align: center;
+  cursor: pointer;
+  width: 80px;
+}
+
+.mReview-card-dropdown button:hover {
+  background-color: #f0f0f0;
+}
+
+.mReview-post-header {
+  font-weight: bold;
+  margin-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.mReview-post-nickname {
+  font-size: 18px;
+}
+
+.mReview-post-meta {
+  font-size: 12px;
+  color: #888;
+  margin-top: 3px;
+  margin-bottom: 10px;
+}
+
+.mReview-photo-wrapper {
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.mReview-photo-slider {
+  width: 100%;
+  height: 450px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background-color: #f8f8f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mReview-photo-slide {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mReview-photo-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.mReview-photo-empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #aaa;
+  font-size: 14px;
+  background-color: #f0f0f0;
+}
+
+.mReview-photo-placeholder {
+  opacity: 0.6;
+}
+
+.mReview-photo-delete {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.mReview-photo-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  border: none;
+  font-size: 24px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mReview-photo-nav.left {
+  left: 10px;
+}
+.mReview-photo-nav.right {
+  right: 10px;
+}
+
+.mReview-photo-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+}
+
+.mReview-dot {
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  background-color: #ccc;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease; /* 부드러운 애니메이션 */
+}
+
+.mReview-dot:hover,
+.mReview-dot.active {
+  width: 12px;
+  height: 12px;
+  background-color: #4caf50;
+}
+
+.mReview-content-preview {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  margin-bottom: 10px;
+  font-weight: 400;
+  line-height: 1.5;
+  min-height: 4.5em;
+}
+
+.mReview-see-more-btn {
+  color: rgb(119, 119, 119);
+  font-size: 10px;
+  cursor: pointer;
+  text-align: right;
+}
+
+.mReview-see-more-btn-placeholder {
+  height: 13.6px;
+}
+
+.mReview-post-tags {
+  margin-bottom: 8px;
+}
+
+.mReview-post-tag {
+  background-color: #eef1f4;
+  color: #333;
+  font-size: 0.85rem;
+  padding: 4px 8px;
+  border-radius: 12px;
+  margin-right: 4px;
+}
+
+.mReview-post-reactions {
+  display: flex;
+  font-size: 13px;
+  color: #666;
+  margin-top: auto;
+  gap: 20px;
+}
+
+/* 수정 폼 */
+.mReview-edit-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  gap: 12px;
+}
+
+.mReview-input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.mReview-input:focus {
+  border: 2px solid #8caa63;
+  outline: none;
+}
+
+.mReview-textarea {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  resize: none;
+  overflow-y: hidden;
+}
+
+.mReview-textarea:focus {
+  border: 2px solid #8caa63;
+  outline: none;
+}
+
+.mReview-mountain-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 120px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.mReview-mountain-item {
+  padding: 8px 10px;
+  cursor: pointer;
+}
+
+.mReview-mountain-item:hover {
+  background-color: #f0f0f0;
+}
+
+.mReview-mountain-item.selected {
+  background-color: #d2f3e0;
+  font-weight: bold;
+}
+
+.mReview-course-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 120px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.mReview-course-item {
+  padding: 8px 10px;
+  cursor: pointer;
+}
+
+.mReview-course-item:hover {
+  background-color: #f0f0f0;
+}
+
+.mReview-course-item.selected {
+  background-color: #d2f3e0;
+  font-weight: bold;
+}
+
+.mReview-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+.mReview-submit-button {
+  padding: 8px 12px;
+  border: none;
+  background: #4caf50;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.mReview-cancel-button {
+  padding: 8px 12px;
+  border: none;
+  background: #999;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.mReview-photo-column-layout {
+  margin-top: 10px;
+  flex-direction: column;
+  padding: 0;
+  width: 100%;
+}
+
+.mReview-photo-column-layout .preview-container {
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.mReview-photo-column-layout .preview-image {
+  width: 116px;
+  height: 116px;
+}
+
+.mReview-photo-column-layout .upload-button-container {
+  align-self: flex-end;
+}

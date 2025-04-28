@@ -1,0 +1,40 @@
+/* 공통 아이콘 스타일 */
+.sticky-icon {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Hover 시 확대 및 그림자 효과 */
+.sticky-icon:hover {
+  transform: scale(1.2);
+}
+
+/* 터치 디바이스 대응 (선택 사항) */
+@media (hover: none) {
+  .sticky-icon:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+/* 메인페이지 지도 아이콘 버튼 설정 */
+.sticky-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.sticky-button img {
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+}
+
+.sticky-button img:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s ease-in-out;
+}
+

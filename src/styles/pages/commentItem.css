@@ -1,0 +1,182 @@
+/* 전체 댓글 항목 */
+.review-comment-item {
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+/* 댓글 상단 닉네임과 작성 날짜, 드롭바 옵션 */
+.review-comment-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  position: relative;
+  overflow: visible;
+}
+
+.review-comment-header strong {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.review-comment-header .review-comment-date {
+  font-size: 12px;
+  color: #888;
+  margin-left: 10px;
+}
+
+.review-comment-owner-actions {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.review-comment-more-button {
+  background: none;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.review-comment-edit-delete-button {
+  position: absolute;
+  top: 25px;
+  right: -10px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  z-index: 15;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.review-comment-edit-button,
+.review-comment-delete-button {
+  width: 70px;
+  height: 40px;
+  padding: 8px 15px;
+  border: none;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+}
+
+.review-comment-edit-button:hover,
+.review-comment-delete-button:hover {
+  background-color: #f0f0f0;
+}
+
+.review-comment-save-cancel-button {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.review-comment-save-button {
+  width: 30px;
+  font-size: 12px;
+  color: red;
+  cursor: pointer;
+  position: absolute;
+  bottom: -88px;
+  right: 40px;
+}
+
+.review-comment-cancel-button {
+  width: 30px;
+  font-size: 12px;
+  color: red;
+  position: absolute;
+  bottom: -88px;
+  right: 0px;
+}
+
+.review-comment-save-button:hover,
+.review-comment-cancel-button:hover {
+  text-decoration: underline;
+}
+
+/* 댓글 내용 */
+.review-comment-content {
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+.review-comment-actions {
+  margin-top: 10px; /* 댓글 사이 간격을 10px로 설정 */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.review-comment-input-button {
+  background: none;
+  border: none;
+  color: #5e5e5e;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+.review-comment-hidden-button {
+  background: none;
+  border: none;
+  color: #5e5e5e;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  padding-left: 45px;
+}
+
+.review-comment-hidden-button::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 1px;
+  background-color: #ccc;
+  margin-bottom: 10px;
+}
+
+.review-comment-edit-textarea {
+  width: 100%;
+  min-height: 40px; /* 최소 높이 */
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  resize: none; /* 사용자가 크기 조정을 하지 못하도록 */
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.review-comment-edit-textarea:focus {
+  border: 2px solid #8caa63;
+  outline: none;
+}
+
+.review-reply-list {
+  margin-left: 10px;
+}
+
+.review-comment-more-text-box {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.review-comment-more-text-button {
+  color: #888;
+  font-size: 12px;
+}
+
+.review-comment-scroll {
+  max-height: 300px;
+  overflow-y: auto;
+}

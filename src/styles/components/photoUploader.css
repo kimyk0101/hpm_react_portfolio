@@ -1,0 +1,80 @@
+.photo-uploader-wrapper {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 10px;
+    gap: 1rem;
+  }
+  
+  .photo-uploader-wrapper.active {
+    background-color: #e3f2fd;
+    border-color: #2196f3;
+  }
+  
+  .preview-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    min-width: 0;
+    border: 2px dashed #ccc; /* ✅ 테두리 여기만 */
+    border-radius: 10px;
+    padding: 1rem;
+    background-color: #f5f5f5;
+  }
+  
+  .preview-image {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+  
+  .preview-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .image-count {
+    text-align: right;
+    margin-top: 8px;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .remove-btn {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 12px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+  
+  .upload-button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  
+  .upload-button {
+    padding: 0.5rem 1rem;
+    background-color: #289f42;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  
+  .upload-button:hover {
+    background-color: #20861c;
+  }
+  

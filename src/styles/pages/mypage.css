@@ -1,0 +1,310 @@
+/* ===== MYPAGE 전체 레이아웃 (Mypage.jsx) ===== */
+.mypage-layout {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  margin: 20px auto 0;
+  max-width: 1200px;
+  color: #333;
+  
+  padding-top: 60px;
+}
+
+/* ===== 사이드바 (MypageHeader + MypageFooter) ===== */
+.mypage-sidebar {
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.sidebar-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-menu li,
+.mypage-footer li {
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #333;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  cursor: pointer;
+}
+
+/* hover 효과 */
+.sidebar-menu li:hover,
+.mypage-footer li:hover {
+  background-color: #c8e6c9;
+  color: #00796b;
+}
+
+/* active 탭 스타일 */
+.sidebar-menu li.active {
+  background-color: #c8e6c9;
+  color: #2e7d32;
+  font-weight: bold;
+}
+
+/* ===== 오른쪽 콘텐츠 영역 (히스토리, 활동 카드 등) ===== */
+.mypage-main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ===== 헤더 (닉네임 + 버튼들) - MypageHeader.jsx ===== */
+.mypage-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 1rem;
+}
+
+.mypage-header h2 {
+  font-size: 1.8rem;
+  margin: 1rem 0 0.5rem;
+}
+
+.header-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.header-actions button {
+  padding: 0.5rem 1rem;
+  background-color: #54451c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.header-actions button:hover {
+  background-color: #5c5941;
+}
+
+/* ===== 프로필 이미지 - ProfileImage.jsx ===== */
+.profile-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.profile-img-container {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #ccc;
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+}
+
+.profile-img-loaded {
+  opacity: 1;
+}
+
+.edit-menu-wrapper {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.edit-icon {
+  background-color: white;
+  padding: 6px;
+  border-radius: 50%;
+  font-size: 35px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+.profile-menu {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  margin-left: 4px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  width: 160px;
+}
+
+.profile-menu button {
+  width: 100%;
+  padding: 8px 12px;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.profile-menu button:hover {
+  background-color: #f5f5f5;
+}
+
+/* ===== Footer 메뉴 - MypageFooter.jsx ===== */
+
+/* ===== 콘텐츠 카드 영역 ===== */
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.activity-card {
+  flex: 1;
+  min-width: 200px;
+  padding: 1rem;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.activity-card:hover {
+  transform: scale(1.03);
+}
+
+/* ===== 히스토리 탭 - Mypage.jsx (우측 콘텐츠) ===== */
+.history-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.history-tabs button {
+  padding: 0.5rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  background-color: #e0e0e0;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.history-tabs button.active {
+  background-color: #2e7d32;
+  color: white;
+}
+
+.history-tabs button:hover {
+  background-color: #388e3c;
+  color: white;
+}
+
+.history-content {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+/* ===== Footer 메뉴 - MypageFooter.jsx ===== */
+.mypage-footer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #ccc;
+  font-size: 0.95rem;
+}
+
+.mypage-footer h3 {
+  /* margin-bottom: 2rem; */
+  font-weight: bold;
+  /* border-top: 1px solid #ccc; */
+}
+
+.mypage-footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mypage-footer li {
+  /* margin-bottom: 2rem; */
+  cursor: pointer;
+  color: #333;
+  transition: color 0.2s;
+}
+
+
+
+/* ===== Mypage Home - ProfileBox.jsx ===== */
+
+.profile-box {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.profile-box .profile-img-container {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #ccc;
+}
+
+.profile-box .profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-nickname {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.profile-email {
+  font-size: 0.95rem;
+  color: #777;
+  margin-bottom: 1.2rem;
+}
+
+.edit-btn {
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.edit-btn:hover {
+  background-color: #125aa0;
+}

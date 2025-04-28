@@ -1,0 +1,11 @@
+.community-comments {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 50px;
+}
+
+.community-no-comments {
+  margin-left: 20px;
+  margin-top: 20px;
+}

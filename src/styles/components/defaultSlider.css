@@ -1,0 +1,93 @@
+/* GenericSlider.css */
+
+.slider-card {
+  /* min-width: 300px; */
+  width: 100%;
+  /* border: 1px solid #ccc; */
+  /* border-radius: 12px; */
+  overflow: hidden;
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+}
+
+
+.slider-wrapper {
+    position: relative;
+    padding: 1rem 0;
+    /* background-color: aqua; */
+    /* display: flex; */
+    /* align-items: center; */
+  }
+
+  
+  .slider-track {
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    /* padding-right: 43px; */
+    /* padding: 0 2rem; */
+    gap: 16px;
+    /* padding-right: 1rem; */
+    scrollbar-width: none;
+    box-sizing: border-box;
+    scroll-snap-type: x mandatory;
+    width: 100%;
+    /* height: 100%; */
+  }
+
+  .slider-track > div {
+    box-sizing: border-box; /* ✅ 카드도 */
+    scroll-snap-align: start;
+    /* padding: 0.25rem; */
+    /* gap: 2px; */
+  }
+
+
+  
+  
+  .slider-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .slider-item {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    /* flex: 0 0 auto; */
+
+    box-sizing: border-box;
+  }
+  
+
+  .slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 20%;
+    width: 40px;
+    height: 40px;
+    /* font-size: 1.2rem; */
+    cursor: pointer;
+    z-index: 10;
+    /* display: /flex; */
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .slider-btn.left {
+    /* margin-right: 0.5rem; */
+    left: 0;
+    transform: translate(-50%, -50%);
+  }
+  
+  .slider-btn.right {
+    /* margin-left: 0.5rem; */
+    right: 0;
+    transform: translate(50%, -50%);
+    
+  }
+
+  .slider-wrapper.trail-slider .slider-btn {
+    top: 35%;
+  }

@@ -1,0 +1,199 @@
+/* 자유게시판 */
+.communityPage {
+  max-width: 1100px; /* 예시: 최대 넓이를 1000px로 제한 */
+  margin: 0 auto; /* 가운데 정렬 */
+  margin-top: 19px;
+  padding-top: 1px;
+}
+
+.no-posts-container {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.no-posts-image {
+  width: 600px;
+  height: 600px;
+  opacity: 0.9;
+}
+
+.communityPage h2 {  
+  margin-top:57.5px;
+  padding-top: 20px;
+  font-size: 24px;
+  margin-bottom: 50px;
+  border-bottom: 3px solid black;
+  padding-bottom: 20px;
+}
+
+/* 테이블 스타일 */
+.community-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+/* 테이블 헤더 스타일 */
+.community-table thead {
+  background: #f8f8f8;
+  border-bottom: 2px solid #ccc;
+}
+
+.community-table th {
+  padding: 12px;
+  text-align: center;
+  font-weight: bold;
+  color: black;
+}
+
+/* 테이블 열(컬럼) 크기 조정 */
+.community-col-number {
+  width: 80px;
+}
+
+.community-col-title {
+  width: 580px; 
+}
+
+.community-col-nickname {
+  width: 160px;
+}
+
+.community-col-date {
+  width: 100px;
+}
+
+.community-col-views {
+  width: 80px;
+}
+
+/* 테이블 행 스타일 */
+.community-table tr {
+  border-bottom: 1px solid #ddd;
+  transition: background 0.2s ease-in-out;
+}
+
+/* 게시글 데이터 스타일 */
+.community-table td {
+  padding: 12px;
+  color: #555;
+}
+
+/* 제목은 강조 */
+.community-post-title {
+  font-weight: bold;
+  cursor: pointer;
+  text-align: left;
+  white-space: nowrap;  
+  overflow: hidden;      
+  text-overflow: ellipsis;
+  display: block;        
+  width: 580px;      
+}    
+
+.community-post-center {
+  text-align: center;
+}
+
+/* 행 호버 효과 */
+.community-post-row:hover {
+  background: #f1f1f1;
+}
+
+/* 페이지네이션 스타일 */
+.community-pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.community-pagination-btn {
+  padding: 8px 12px;
+  margin: 0 5px;
+  background: #fff;
+  color: #333;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.community-pagination-btn:hover {
+  background: #f0f0f0;
+}
+
+.community-pagination-btn.active {
+  background: #b5c18e;
+  color: white;
+  font-weight: bold;
+  border-color: #b5c18e;
+}
+
+/* 작성하기 버튼을 감싸는 컨테이너 */
+.community-button-container {
+    display: flex;
+    justify-content: flex-end; /* 오른쪽 정렬 */
+    margin-top: 20px;
+    padding-right: 10px; /* 오른쪽 여백 추가 (선택 사항) */
+  }
+
+/* 기본 버튼 스타일 */
+.create-community-post-button {
+  max-width: 250px;
+  overflow: hidden;
+  position: relative;
+  border: 3px solid black;
+  padding: 1em 2em;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  background: none;
+  color: black;
+  cursor: pointer;
+  overflow: hidden;
+  transition: background-color 0.3s, border-color 0.3s;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+/* 버튼 텍스트: 기존 검정 글자 */
+.create-community-post-button > span {
+  position: relative;
+  z-index: 2;
+  display: block;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+/* hover 시 검정 글자는 위로 사라짐 */
+.create-community-post-button:hover > span {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+/* 테두리도 초록색으로 변경 */
+.create-community-post-button:hover {
+  border-color: #8caa63; 
+}
+
+/* 새로운 초록색 글자 */
+.create-community-post-button::after {
+  content: attr(data-text);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  color: #8caa63;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+/* hover 시 초록 글자가 중앙까지 올라옴 */
+.create-community-post-button:hover::after {
+  transform: translateY(0); /* 버튼의 중앙에 고정 */
+  opacity: 1;
+}

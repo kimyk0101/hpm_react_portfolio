@@ -1,0 +1,157 @@
+/* ================= MyPostsPage.jsx ================= */
+.mypage-posts-page {
+  padding: 2rem;
+  background-color: #fdfdfd;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  margin-top: 90px;
+}
+
+.mypage-posts-page h3 {
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+  color: #2e7d32;
+  font-weight: bold;
+}
+
+.tab-wrapper {
+  margin-top: 1rem;
+}
+
+/* ================= 공통 탭 스타일 ================= */
+.history-tabs,
+.community-tab .sub-tab-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.history-tabs button,
+.community-tab .sub-tab-buttons button {
+  padding: 0.6rem 1.4rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #e0f2f1;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  color: #00695c;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.history-tabs button:hover,
+.community-tab .sub-tab-buttons button:hover {
+  background-color: #b2dfdb;
+}
+
+.history-tabs button.active,
+.community-tab .sub-tab-buttons button.active {
+  background-color: #00796b;
+  color: white;
+  font-weight: bold;
+}
+.community-tab {
+  position: relative; /* 기준점 설정 */
+  padding-top: 0.9rem;
+}
+
+/* 버튼 영역 */
+.sub-tab-buttons {
+  position: absolute;
+  top: 0.1rem; /* 살짝 위로 띄우기 */
+  /* left: 1.5rem; */
+  background-color: white;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  z-index: 2;
+  /* box-shadow: 0 2px 6px rgba(0,0,0,0.1); */
+}
+
+/* 콘텐츠 영역 */
+.sub-tab-content {
+  position: relative;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  z-index: 1;
+  margin-top: 1.5rem; /* 버튼 영역 공간 확보 */
+}
+
+/* ================= 공통 콘텐츠 카드 영역 ================= */
+.sub-tab-content,
+.history-content {
+  background-color: white;
+  padding: 1.5rem 1.8rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  min-height: 320px;
+}
+
+/* ================= 리스트형 포스트 스타일 ================= */
+.review-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.review-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.review-item:hover {
+  background-color: #f9f9f9;
+}
+
+.review-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.review-text {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* 2줄 말줄임 */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.review-date {
+  font-size: 0.8rem;
+  color: #999;
+}
+
+/* 썸네일 이미지 */
+.review-thumbnail {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.review-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+}
+
+/* 기존 post-item 등 비활성화 */
+.post-item,
+.post-title,
+.post-meta {
+  all: unset;
+}

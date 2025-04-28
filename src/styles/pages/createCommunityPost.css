@@ -1,0 +1,227 @@
+/* 상세페이지 스타일 */
+.communityPage-create h2 {
+  font-size: 24px;
+  margin-bottom: 50px;
+  border-bottom: 3px solid black;
+  padding-bottom: 20px;
+}
+
+.communityPage-create {
+  padding-top: 80px;
+  margin: 0 auto; /* 가운데 정렬 */
+  max-width: 1100px; /* 예시: 최대 넓이를 1000px로 제한 */
+}
+
+
+/* 전체 폼 스타일 */
+.c-post-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* 제목 스타일 */
+.c-post-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  border: none;
+  width: 100%;
+  background: transparent;
+  padding: 10px;
+  outline: none;
+  transition: all 0.1s ease;
+}
+
+/* 제목 포커스 시 부드러운 테두리 */
+.c-post-title:focus {
+  border-bottom: 2px solid #8caa63;
+  outline: none;
+}
+
+/* 내용 입력 박스 */
+.c-post-content {
+  width: 100%;
+  min-height: 200px;
+  border: none;
+  font-size: 1rem;
+  background: transparent;
+  outline: none;
+  padding: 10px;
+  transition: all 0.1s ease;
+  resize: none;
+  overflow-y: hidden;
+}
+
+/* 내용 입력 시 테두리 강조 */
+.c-post-content:focus {
+  border: 2px solid #8caa63;
+  background: #f8f9fa;
+  border-radius: 5px;
+  outline: none;
+}
+
+.c-post-photo-column-layout {
+  margin-top: 10px;
+  flex-direction: column;
+  padding: 0;
+  width: 100%;
+}
+
+.c-post-photo-column-layout .preview-container {
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.c-post-photo-column-layout .preview-image {
+  width: 270px;
+  height: 270px;
+}
+
+.c-post-photo-column-layout .upload-button-container {
+  align-self: flex-end;
+}
+
+/* 버튼 컨테이너 스타일 */
+.c-post-button-container {
+  display: flex;
+  justify-content: flex-end; /* 버튼을 오른쪽으로 정렬 */
+  gap: 20px; /* 버튼들 사이의 간격 */
+}
+
+/* 버튼 스타일 */
+.c-post-save,
+.c-post-cancel {
+  width: 150px;
+  overflow: hidden;
+  position: relative;
+  border: 3px solid black;
+  padding: 1em 2em;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  background: none;
+  color: black;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s, border-color 0.3s;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+/* 버튼 텍스트 */
+.c-post-save > span,
+.c-post-cancel > span {
+  position: relative;
+  z-index: 2;
+  display: block;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+/* 버튼 hover 시 효과 */
+.c-post-save:hover > span,
+.c-post-cancel:hover > span {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+/* 버튼 hover 시 테두리 색상 */
+.c-post-save:hover,
+.c-post-cancel:hover {
+  border-color: #8caa63;
+}
+
+/* 버튼 hover 시 초록색 텍스트 표시 */
+.c-post-save::after,
+.c-post-cancel::after {
+  content: attr(data-text);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  color: #8caa63;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+/* 버튼 hover 시 초록색 텍스트 중앙 고정 */
+.c-post-save:hover::after,
+.c-post-cancel:hover::after {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.c-login-container {
+  display: flex;
+  flex-direction: column; 
+  gap: 30px; 
+}
+
+/* 로그인 안내 메시지 스타일 */
+.c-login-redirect-message {
+  font-size: 1rem;
+  color: #555;
+  text-align: center;
+}
+
+.c-login-redirect-button {
+  width: 200px;
+  overflow: hidden;
+  position: relative;
+  border: 3px solid black;
+  padding: 1em 2em;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  background: none;
+  color: black;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+  display: flex;
+  justify-content: center;
+}
+
+.c-login-redirect-button > span {
+  position: relative;
+  z-index: 2;
+  display: block;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.c-login-redirect-button:hover > span {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.c-login-redirect-button:hover {
+  border-color: #8caa63;
+}
+
+.c-login-redirect-button::after {
+  content: attr(data-text);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  color: #8caa63;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.c-login-redirect-button:hover::after{
+  transform: translateY(0);
+  opacity: 1;
+}

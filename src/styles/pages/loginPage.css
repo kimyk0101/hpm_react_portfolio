@@ -1,0 +1,185 @@
+.login-body {
+  margin-top: 20px;
+  padding-top: 10px;
+}
+
+.login-container {
+  display: flex;
+  width: 80%;
+  height: 500px;
+  margin: 50px auto;
+  background: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.login-left {
+  flex: 2;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.login-right {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+}
+
+.login-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.login-input-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.login-input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid #ccc; 
+  outline: none;
+  font-size: 16px;
+  background: transparent;
+  margin-bottom: 30px;
+}
+
+.login-input-wrapper::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 30px; 
+  width: 100%;
+  height: 2px;
+  background-color: #5A7D48; 
+  transform: scaleX(0); 
+  transition: transform 0.3s ease-in-out;
+}
+
+/* input에 hover하면 초록 밑줄 나타남 */
+.login-input-wrapper:hover::after {
+  transform: scaleX(1);
+}
+
+.login-button {
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+  border: 3px solid black;
+  padding: 1em 2em;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  background: none;
+  color: black;
+  cursor: pointer;
+  overflow: hidden;
+  transition: background-color 0.3s, border-color 0.3s;
+  display: flex;
+  justify-content: center;
+}
+
+.login-button > span {
+  position: relative;
+  z-index: 2;
+  display: block;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+/* hover 시 검정 글자는 위로 사라짐 */
+.login-button:hover > span {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+/* 테두리도 초록색으로 변경 */
+.login-button:hover {
+  border-color: #5A7D48; 
+}
+
+/* 새로운 초록색 글자 */
+.login-button::after {
+  content: attr(data-text);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  color: #5A7D48;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+/* hover 시 초록 글자가 중앙까지 올라옴 */
+.login-button:hover::after {
+  transform: translateY(0); /* 버튼의 중앙에 고정 */
+  opacity: 1;
+}
+
+.login-right {
+  background: url("/images/LoginPage-image.png") no-repeat center;
+  background-size: cover;
+  position: relative;
+}
+
+.login-right-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(44, 44, 44, 0.411);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+/* 기본 버튼 스타일 */
+.login-signup-button {
+  position: relative;
+  border: 2px solid white; 
+  padding: 1em 2em;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+/* hover 시 배경색 그라디언트 */
+.login-signup-button:hover {
+  background: linear-gradient(45deg, #A8C686, #B5C18E); 
+  color: white; /* 흰색 텍스트 */
+  border-color: #A8C686; 
+}
+
+
+
+
+
+

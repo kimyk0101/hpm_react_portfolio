@@ -1,0 +1,109 @@
+/* 개별 댓글 스타일 */
+.community-comment {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+/* 닉네임과 작성자 배지 */
+.community-comment-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.community-comment-nickname {
+  color: #333;
+}
+.community-comment-author-badge {
+  background-color: #ccf7d6;
+  color: #16d12f;
+  font-size: 12px;
+  padding: 3px 7px;
+  border-radius: 12px;
+}
+
+.community-comment-content {
+  padding: 10px;
+  cursor: pointer;
+}
+
+/* 날짜 스타일 */
+.community-comment-updateDate {
+  font-size: 13px;
+  color: #888;
+}
+
+/* 댓글 수정 */
+.community-comment-textarea {
+  width: 100%;
+  height: 50px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: none;
+  overflow-y: hidden;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.community-comment-textarea:focus {
+  border: 2px solid #8caa63;
+  outline: none;
+}
+
+/* 댓글 수정 wrapper */
+.community-comment-edit-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* 버튼 그룹 */
+.community-comment-edit-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+/* 수정 완료 / 취소 버튼 */
+.community-comment-edit-button {
+  background: none;
+  border: none;
+  font-size: 12px;
+  color: #ff4d4f;
+  cursor: pointer;
+}
+
+.community-comment-edit-button:hover {
+  text-decoration: underline;
+}
+
+/* 답글 쓰기 버튼 스타일 */
+.community-comment-reply-button {
+  font-size: 13px;
+  color: #888;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+  padding: 0;
+}
+
+/* 날짜 + 답글 쓰기 정렬 */
+.community-comment-meta {
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+}
+
+/* 답글 스타일 */
+.community-replies {
+  padding-left: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}

@@ -1,0 +1,84 @@
+/* 댓글 입력 영역 */
+.community-comment-input {
+  margin-top: 10px;
+  margin-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  resize: none;
+  overflow-y: hidden;
+}
+
+.community-comment-input textarea {
+  width: 100%;
+  height: 130px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: none;
+  overflow-y: hidden;
+}
+
+.community-comment-input textarea:focus {
+  border: 2px solid #8caa63;
+  outline: none;
+}
+
+/* 댓글 작성 버튼 */
+.community-comment-input-button {
+  width: 120px;
+  height: auto;
+  overflow: hidden;
+  position: relative;
+  border: 3px solid black;
+  padding: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  background: none;
+  color: black;
+  cursor: pointer;
+  overflow: hidden;
+  transition: background-color 0.3s, border-color 0.3s;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  align-self: flex-end;
+}
+
+.community-comment-input-button > span {
+  position: relative;
+  z-index: 2;
+  display: block;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.community-comment-input-button:hover > span {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.community-comment-input-button:hover {
+  border-color: #8caa63;
+}
+
+.community-comment-input-button::after {
+  content: attr(data-text);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  color: #8caa63;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.community-comment-input-button:hover::after {
+  transform: translateY(0); /* 버튼의 중앙에 고정 */
+  opacity: 1;
+}

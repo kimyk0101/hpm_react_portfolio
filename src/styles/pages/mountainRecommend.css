@@ -1,0 +1,127 @@
+.mountain-recommend-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: #f9f9f9; */
+    max-width: 1200px;
+    margin-top: 20px;
+    border-radius: 50px;
+    padding-top: 50px;
+}
+
+.mountain-recommend-container h1 {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #333;
+}
+
+.error-message {
+    color: red;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.filter-and-image-container {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+}
+
+.filter-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 48%;
+}
+
+.filter-sections {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.filter-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 1px solid #e0e0e0;
+    padding: 15px;
+    width: 100%;
+    border-radius: 8px;
+    background-color: white;
+    margin-bottom: 15px;
+    transition: border-color 0.3s ease;
+}
+
+.filter-section.selected {
+    border: 3px solid green;
+}
+
+.filter-section h2 {
+    margin-bottom: 10px;
+    font-size: 1em;
+    color: #555;
+}
+
+.filter-section select {
+    padding: 10px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;
+    width: 100%;
+}
+
+.image-button-wrapper {
+    position: relative;
+    width: 48%;
+    height: 350px;
+    margin-top: -3px;
+    margin-left: 100px;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.background-image {
+    width: 100%;
+    height: 100%;
+    
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+.filter-result-button {
+    position: absolute;
+    bottom: 158px;
+    right: 138px;
+    padding: 10px 20px;
+    background-color: rgb(40, 167, 69);
+    color: white;
+    border: 5px solid #8EE50A;
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 1em;
+    font-weight: bold;
+    transition: transform 0.3s ease; /* 크기 변경 애니메이션 효과 */
+}
+
+
+.filter-result-button:hover {
+    background-color: #218838;
+    transform: scale(1.1); /* 마우스 호버 시 1.1배 크기로 확대 */
+}
+
+@media (max-width: 768px) {
+    .filter-and-image-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .filter-options, .image-button-wrapper {
+        width: 90%;
+    }
+}

@@ -1,0 +1,51 @@
+.image-area {
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 12px;
+  overflow: hidden; /* 이미지 넘침 방지 */
+}
+
+.image-area .image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+  
+  .trail-summary {
+    background-color: #cce5ff; /* 연하늘색 */
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .trail-details {
+    background-color: #f2f2f2; /* 회색 */
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    color: #333;
+  }
+
+  .trail-course {
+    color: #134415;   /* 짙은 녹색 */
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin: 4px 0;
+  } 
+  
+  .trail-meta {
+    display: flex;
+    justify-content: flex-start;
+    gap: 12px; 
+    color: #134415;  
+    font-size: 0.85rem;
+    margin-top: 6px;
+  }
+  
+  .trail-meta span {
+    white-space: nowrap; /* 줄바꿈 방지 */
+  }

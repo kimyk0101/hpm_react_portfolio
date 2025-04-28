@@ -1,0 +1,42 @@
+/* 대댓글 입력 영역 */
+.community-reply-input {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+/* textarea 설정 */
+.community-reply-input textarea {
+  width: calc(100% - 130px);
+  height: 50px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: none;
+  overflow-y: hidden;
+  font-size: 14px;
+}
+
+.community-reply-input textarea:focus {
+  border: 2px solid #8caa63;
+  outline: none;
+}
+
+/* 답글 작성 버튼 */
+.community-reply-input-button {
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: black;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+/* hover 시 글자색만 초록색으로 변경 */
+.community-reply-input-button:hover {
+  color: #8caa63;
+}

@@ -1,0 +1,83 @@
+.review-split-section {
+  display: flex;
+  flex-direction: column; /* 세로 정렬: 제목 + 컬럼 영역 */
+  align-items: center;
+  padding: 3rem 0;
+  position: relative;
+}
+
+/* 섹션 상단 제목 */
+.review-section-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  color: #2e5f3e;
+}
+
+/* 후기 컬럼을 나란히 정렬 */
+.review-columns {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 8rem;
+  width: 100%;
+  max-width: 1000px;
+  padding: 0 1rem;
+}
+
+/* 개별 후기 박스 */
+.review-column {
+  flex: 1;
+  text-align: center;
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
+}
+
+.review-column h3 {
+  font-size: 1.6rem;
+  color: #2e5f3e;
+  margin-bottom: 0.75rem;
+}
+
+.review-column p {
+  font-size: 1.05rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-3px); }
+  40% { transform: translateX(3px); }
+  60% { transform: translateX(-3px); }
+  80% { transform: translateX(3px); }
+  100% { transform: translateX(0); }
+}
+
+.review-button {
+  background-color: #5f7c60;
+  color: white;
+  border: none;
+  border-radius: 9999px;
+  padding: 0.6rem 1.4rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.review-button:hover {
+  background-color: #3e5942;
+  animation: shake 0.5s ease; /* 흔들림 효과 추가 */
+}
+
+
+.review-icon {
+  width: 130px;
+  height: 130px;
+  margin-bottom: 0.8rem;
+}
+

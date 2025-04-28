@@ -1,0 +1,119 @@
+.mountain-result-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    padding-top: 50px;
+}
+
+.mountain-result-container h3 {
+    margin-top: 40px;
+    font-size: 30px;
+}
+
+.carousel {
+    position: relative;
+    width: 50rem;
+    height: 30rem;
+    perspective: 500px;
+    transform-style: preserve-3d;
+    margin-top: 30px;
+}
+
+.card-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: 
+        rotateY(calc(var(--offset) * 50deg)) 
+        scaleY(calc(1 + var(--abs-offset) * -0.4))
+        translateZ(calc(var(--abs-offset) * -30rem))
+        translateX(calc(var(--direction) * -5rem));
+    filter: blur(calc(var(--abs-offset) * 1rem));
+    transition: all 0.3s ease-out;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    padding: 0.6rem;
+    border-radius: 1.5rem;
+    color: #9CA3AF;
+    text-align: left;
+    transition: all 0.3s ease-out;
+    background-color: #f0f0f0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card.center {
+    color: white;
+}
+
+.card.center .mountain-details p {
+    color: white;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.card.center strong {
+    font-weight: bold;
+    color: #D1C4E9;
+}
+
+.card h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0 0 0.7em;
+    color: white;
+}
+
+.card p, .card h2 {
+    transition: all 0.3s ease-out;
+    opacity: var(--active);
+}
+
+.nav {
+    color: white;
+    font-size: 5rem;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 50%;
+    z-index: 2;
+    cursor: pointer;
+    user-select: none;
+    background: unset;
+    border: unset;
+}
+
+.nav.left {
+    transform: translateX(-100%) translateY(-50%);
+}
+
+.nav.right {
+    right: 0;
+    transform: translateX(100%) translateY(-50%);
+}
+
+.mountain-details {
+    display: flex;
+    width: 100%;
+}
+
+.mountain-details .left-section {
+    width: 50%;
+    padding-right: 1rem;
+}
+
+.mountain-details .right-section {
+    width: 50%;
+    padding-left: 1rem;
+    border-left: 1px solid #ccc;
+}
+
+.mountain-details p {
+    margin: 0.3rem 0;
+}

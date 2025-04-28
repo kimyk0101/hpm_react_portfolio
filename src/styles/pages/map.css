@@ -1,0 +1,134 @@
+.map-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* 전체 화면 높이 사용 */
+}
+
+.map {
+  flex-grow: 1; /* 남은 공간 모두 차지 */
+  width: 95%;
+  max-width: 1200px;
+  margin: 20px auto; /* 중앙 정렬 */
+  border-radius: 15px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);;
+}
+
+.header-map-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* 헤더가 다른 요소 위에 표시되도록 설정 */
+  background-color: white;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+}
+
+
+.info-box-bottom {
+  position: fixed;
+  z-index: 9999;
+  bottom: -100px; /* 초기 위치 */
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 40px);
+  max-width: 600px;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 20px; /* 여백 추가 */
+  border-radius: 12px;
+  box-shadow: 0px 8px 30px rgba(0, 0, 0, .1);
+  background-color: #f9f9f9;
+
+  /* 애니메이션 효과 */
+  transition: bottom 0.3s ease, opacity 0.3s ease;
+}
+
+.info-box-bottom.open {
+  bottom: 30px; /* 팝업이 열릴 때 위치 */
+}
+
+.info-box-bottom.closed {
+  bottom: -100px; /* 팝업이 닫힐 때 위치 */
+}
+
+.mountain-card {
+  display: flex;
+  align-items: center;
+}
+
+.mountain-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+}
+
+.mountain-info {
+  flex-grow: 1;
+}
+
+.mountain-title {
+  /* font-size: 18px; */
+  font-size: 1.5rem;
+}
+
+.mountain-location,
+.mountain-height,
+.mountain-selection-reason {
+  font-size: .9rem;
+}
+
+.button-group button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 상세보기 버튼 */
+.detail-map-button {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.detail-map-button:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+/* 등산후기 버튼 */
+.review-map-button {
+  background-color: #2196F3;
+  color: white;
+}
+
+.review-map-button:hover {
+  background-color: #1e88e5;
+  transform: scale(1.05);
+}
+
+/* 닫기 버튼 */
+.close-map-button {
+  background-color: #f44336;
+  color: white;
+}
+
+.close-map-button:hover {
+  background-color: #e53935;
+  transform: scale(1.05);
+}
+
+  
+
+/* 라벨 스타일 */
+.custom-label {
+  background-color:rgb(255, 255, 255);
+  padding: 2px 8px;  
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 12px;
+  white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+  z-index: 30; /* 지도 위에 표시 */
+    }

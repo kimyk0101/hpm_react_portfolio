@@ -1,0 +1,31 @@
+.commu-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 1rem;
+    background-color: white;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    min-height: 250px;
+  }
+  
+  .commu-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .commu-content {
+    font-size: 0.95rem;
+    color: #444;
+    margin-bottom: 0.5rem;
+  }
+  
+  .commu-author {
+    font-size: 0.8rem;
+    color: #888;
+    display: flex;
+    justify-content: space-between;
+  }
+  
