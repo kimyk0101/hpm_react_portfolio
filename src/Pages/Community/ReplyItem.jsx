@@ -5,20 +5,24 @@ const ReplyItem = ({ reply, user, onReplyUpdate, postAuthorId }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editContent, setEditContent] = useState(reply.content);
 
-  const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+  // const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
   // 답글 수정 저장
   const handleSaveEdit = async () => {
     if (!editContent.trim()) return;
 
     try {
-      await fetch(`${BASE_URL}/api/communities/comments/replies/${reply.id}`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ content: editContent }),
-      });
+      await fetch(
+        // `${BASE_URL}/api/communities/comments/replies/${reply.id}`,
+        `http://localhost:8088/api/communities/comments/replies/${reply.id}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ content: editContent }),
+        }
+      );
 
       alert("수정되었습니다.");
       setIsEditing(false);
@@ -33,13 +37,17 @@ const ReplyItem = ({ reply, user, onReplyUpdate, postAuthorId }) => {
     if (!window.confirm("답글을 삭제하시겠습니까?")) return;
 
     try {
-      await fetch(`${BASE_URL}/api/communities/comments/replies/${reply.id}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ usersId: user.id }),
-      });
+      await fetch(
+        // `${BASE_URL}/api/communities/comments/replies/${reply.id}`,
+        `http://localhost:8088/api/communities/comments/replies/${reply.id}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ usersId: user.id }),
+        }
+      );
 
       alert("삭제되었습니다.");
       onReplyUpdate();

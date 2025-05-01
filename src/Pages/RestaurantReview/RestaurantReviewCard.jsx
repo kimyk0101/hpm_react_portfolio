@@ -29,13 +29,14 @@ const RestaurantReviewCard = ({ post, currentUser }) => {
   const [searchMountain, setSearchMountain] = useState(""); // 산 검색
   const [filteredMountains, setFilteredMountains] = useState([]); // 필터링된 산 목록
 
-  const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+  // const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
   // 산 목록 가져오기
   useEffect(() => {
     const fetchMountains = async () => {
       try {
-        const response = await fetch(`${BASE_URL}/api/mountains`);
+        // const response = await fetch(`${BASE_URL}/api/mountains`);
+        const response = await fetch("http://localhost:8088/api/mountains");
         if (!response.ok) {
           throw new Error("네트워크 응답이 정상적이지 않습니다.");
         }
@@ -65,7 +66,8 @@ const RestaurantReviewCard = ({ post, currentUser }) => {
   const fetchPhotos = async () => {
     try {
       const res = await fetch(
-        `${BASE_URL}/api/restaurant-reviews/photos/by-restaurant/${post.id}`
+        // `${BASE_URL}/api/restaurant-reviews/photos/by-restaurant/${post.id}`
+         `http://localhost:8088/api/restaurant-reviews/photos/by-restaurant/${post.id}`
       );
 
       // ✅ 예외 없이 JSON 응답이면 계속 진행
@@ -132,7 +134,10 @@ const RestaurantReviewCard = ({ post, currentUser }) => {
 
     try {
       // 1. 게시글 내용 수정 (사진 제외)
-      await fetch(`${BASE_URL}/api/restaurant-reviews/${post.id}`, {
+      await fetch(
+        // `${BASE_URL}/api/restaurant-reviews/${post.id}`, 
+        `http://localhost:8088/api/restaurant-reviews/${post.id}`,
+        {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(updatedPost),
@@ -147,7 +152,10 @@ const RestaurantReviewCard = ({ post, currentUser }) => {
         );
         formData.append("reviewsId", post.id);
 
-        await fetch(`${BASE_URL}/api/restaurant-reviews/photos/upload`, {
+        await fetch(
+          // `${BASE_URL}/api/restaurant-reviews/photos/upload`, 
+          `http://localhost:8088/api/restaurant-reviews/photos/upload`,
+          {
           method: "POST",
           body: formData,
         });
@@ -166,7 +174,8 @@ const RestaurantReviewCard = ({ post, currentUser }) => {
   const handleDeletePhoto = async (photoId) => {
     try {
       await fetch(
-        `${BASE_URL}/api/restaurant-reviews/photos/by-photo/${photoId}`,
+        // `${BASE_URL}/api/restaurant-reviews/photos/by-photo/${photoId}`,
+        `http://localhost:8088/api/restaurant-reviews/photos/by-photo/${photoId}`,
         {
           method: "DELETE",
         }
@@ -183,7 +192,10 @@ const RestaurantReviewCard = ({ post, currentUser }) => {
 
     if (isConfirmed) {
       try {
-        await fetch(`${BASE_URL}/api/restaurant-reviews/${post.id}`, {
+        await fetch(
+          // `${BASE_URL}/api/restaurant-reviews/${post.id}`, 
+          `http://localhost:8088/api/restaurant-reviews/${post.id}`,
+          {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",

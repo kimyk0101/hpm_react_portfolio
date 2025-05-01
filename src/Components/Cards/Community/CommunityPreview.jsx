@@ -7,7 +7,7 @@ import {
 import "../../../styles/components/communitySection.css";
 import { useNavigate } from "react-router-dom";
 
-const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+// const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const CommunityPreview = () => {
   const [data, setData] = useState([]);
   const navigate = useNavigate();
@@ -36,7 +36,10 @@ const CommunityPreview = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(`${BASE_URL}/api/communities`, {
+        const res = await fetch(
+        // `${BASE_URL}/api/communities`, 
+        "http://localhost:8088/api/communities",
+        {
           method: "GET",
           credentials: "include",
         });

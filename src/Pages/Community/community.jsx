@@ -16,10 +16,10 @@
  * 수정자: 김경민
  * 수정내용: 이미지 업로드 기능 추가 (게시글 작성 및 수정 시 이미지 첨부 가능하도록 구현)
  * 수정일: 2025-04-05
- * 
+ *
  * 관련 파일 구조:
  * └─ Community
- *    ├─ Community.jsx                    // 자유게시판 리스트 페이지 
+ *    ├─ Community.jsx                    // 자유게시판 리스트 페이지
  *    ├─ CreateCommunityPost.jsx          // 게시글 작성 페이지
  *    ├─ CommunityDetail.jsx              // 게시글 상세 페이지
  *    ├─ CommentSection.jsx               // 댓글/답글 영역 통합
@@ -42,8 +42,9 @@ import DefaultLayout from "../../layouts/DefaultLayout";
 import "../../styles/pages/community.css";
 
 const CommunityList = () => {
-  const BASE_URL = import.meta.env.VITE_API_BASE_URL;
-  const API_URL = `${BASE_URL}/api/communities`; // API URL
+  // const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+  // const API_URL = `${BASE_URL}/api/communities`;
+  const API_URL = "http://localhost:8088/api/communities";
 
   const [posts, setPosts] = useState([]);
   const [user, setUser] = useState([]); // login 부분
@@ -54,7 +55,8 @@ const CommunityList = () => {
   // 로그인 상태 확인 함수
   const checkLoginStatus = async () => {
     try {
-      const response = await fetch(`${BASE_URL}/api/users/session`, {
+      // const response = await fetch(`${BASE_URL}/api/users/session`, {
+      const response = await fetch("http://localhost:8088/api/users/session", {
         method: "GET",
         credentials: "include", // 쿠키를 포함하여 요청
       });
@@ -131,7 +133,8 @@ const CommunityList = () => {
     try {
       // 조회수 증가 요청 보내기
       const response = await fetch(
-        `${BASE_URL}/api/communities/${postId}/increment-views`,
+        // `${BASE_URL}/api/communities/${postId}/increment-views`,
+        `http://localhost:8088/api/communities/${postId}/increment-views`,
         {
           method: "PUT", // PUT 요청으로 조회수 증가
         }

@@ -6,14 +6,15 @@ const RestaurantPosts = () => {
   const { user } = useAuth();
   const [posts, setPosts] = useState([]);
   const navigate = useNavigate();
-  const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+  // const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
   useEffect(() => {
     // TODO: API 연동 예정
     const fetchPosts = async () => {
       try {
         const response = await fetch(
-          `${BASE_URL}/api/restaurant-reviews/my/${user.id}`,
+          // `${BASE_URL}/api/restaurant-reviews/my/${user.id}`,
+          `http://localhost:8088/api/restaurant-reviews/my/${user.id}`,
           {
             method: "GET",
             credentials: "include",

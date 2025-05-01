@@ -13,7 +13,7 @@ const CommentItem = ({ comment, user, onCommentUpdate, rReviewId }) => {
 
   const textareaRef = useRef(null); // ref로 textarea를 다룬다.
 
-  const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+  // const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
   // 자동 높이 조정
   useEffect(() => {
@@ -84,7 +84,10 @@ const CommentItem = ({ comment, user, onCommentUpdate, rReviewId }) => {
     if (!editContent.trim()) return;
 
     try {
-      await fetch(`${BASE_URL}/api/restaurant-reviews/comments/${comment.id}`, {
+      await fetch(
+        // `${BASE_URL}/api/restaurant-reviews/comments/${comment.id}`, 
+        `http://localhost:8088/api/restaurant-reviews/comments/${comment.id}`,
+        {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -107,7 +110,10 @@ const CommentItem = ({ comment, user, onCommentUpdate, rReviewId }) => {
     if (!window.confirm("댓글을 삭제하시겠습니까?")) return;
 
     try {
-      await fetch(`${BASE_URL}/api/restaurant-reviews/comments/${comment.id}`, {
+      await fetch(
+        // `${BASE_URL}/api/restaurant-reviews/comments/${comment.id}`, 
+        `http://localhost:8088/api/restaurant-reviews/comments/${comment.id}`,
+        {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ usersId: user.id }), // 본인 확인

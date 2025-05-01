@@ -33,13 +33,14 @@ import { FiSearch } from "react-icons/fi";
 import ContentContainer from "../../layouts/ContentContainer";
 import Header from "../../layouts/Header/Header";
 import DefaultLayout from "../../layouts/DefaultLayout";
-import MountainReviewCard from "./mountainReviewCard";
+import MountainReviewCard from "./MountainReviewCard";
 import "../../styles/pages/mountainReview.css";
 import StickyButton from "../../components/map/StickyButton";
 
 const MountainReviewList = () => {
-  const BASE_URL = import.meta.env.VITE_API_BASE_URL;
-  const API_URL = `${BASE_URL}/api/mountain-reviews`;
+  // const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+  // const API_URL = `${BASE_URL}/api/mountain-reviews`;
+  const API_URL = "http://localhost:8088/api/mountain-reviews";
 
   const location = useLocation(); // 라우터 location 정보 가져오기
   const [searchQuery, setSearchQuery] = useState(
@@ -55,7 +56,10 @@ const MountainReviewList = () => {
   // 로그인 상태 확인
   const checkLoginStatus = async () => {
     try {
-      const response = await fetch(`${BASE_URL}/api/users/session`, {
+      const response = await fetch(
+        // `${BASE_URL}/api/users/session`, 
+        "http://localhost:8088/api/users/session",
+        {
         method: "GET",
         credentials: "include",
       });

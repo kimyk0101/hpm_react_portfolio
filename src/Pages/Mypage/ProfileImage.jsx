@@ -17,14 +17,15 @@ const ProfileImage = () => {
   const menuRef = useRef();
   const selectedFileRef = useRef(null);
 
-  const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+  // const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
   //  유저 프로필 이미지 조회
   useEffect(() => {
     const fetchPhoto = async () => {
       try {
         const res = await fetch(
-          `${BASE_URL}/api/users/photos/by-user/${user.id}`
+          // `${BASE_URL}/api/users/photos/by-user/${user.id}`
+          `http://localhost:8088/api/users/photos/by-user/${user.id}`
         );
         const data = (await res.ok) ? await res.json() : null;
 
@@ -69,7 +70,8 @@ const ProfileImage = () => {
   // ✅ S3 Presigned URL 요청
   const getPresignedUrl = async (fileName) => {
     const res = await fetch(
-      `${BASE_URL}/api/s3/presigned-url?fileName=${fileName}`
+      // `${BASE_URL}/api/s3/presigned-url?fileName=${fileName}`
+      `http://localhost:8088/api/s3/presigned-url?fileName=${fileName}`
     );
     const url = await res.text();
     return url;
@@ -100,7 +102,8 @@ const ProfileImage = () => {
       formData.append("usersId", user.id);
       formData.append("photo", file);
 
-      const res = await fetch(`${BASE_URL}/api/users/photos/upload`, {
+      // const res = await fetch(`${BASE_URL}/api/users/photos/upload`, {
+      const res = await fetch("http://localhost:8088/api/users/photos/upload", {
         method: "POST",
         body: formData,
       });
@@ -121,9 +124,15 @@ const ProfileImage = () => {
     if (!confirm) return;
 
     try {
-      const res = await fetch(`${BASE_URL}/api/users/photos/by-id/${user.id}`, {
-        method: "DELETE",
-      });
+      // const res = await fetch(`${BASE_URL}/api/users/photos/by-id/${user.id}`, {
+      //   method: "DELETE",
+      // });
+      const res = await fetch(
+        `http://localhost:8088/api/users/photos/by-id/${user.id}`,
+        {
+          method: "DELETE",
+        }
+      );
 
       if (res.ok) {
         setImageUrl("/default-profile.jpg");

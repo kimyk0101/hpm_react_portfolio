@@ -10,14 +10,18 @@ const CreateRestaurantReview = () => {
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(true); // 로그인 상태 유지
   const [user, setUser] = useState([]); // 사용자 정보
-  const BASE_URL = import.meta.env.VITE_API_BASE_URL;
-  const API_URL = `${BASE_URL}/api/restaurant-reviews`;
+  // const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+  // const API_URL = `${BASE_URL}/api/restaurant-reviews`;
+  const API_URL = "http://localhost:8088/api/restaurant-reviews";
   const [images, setImages] = useState([]);
   const photoUploaderRef = useRef();
 
   const checkLoginStatus = async () => {
     try {
-      const response = await fetch(`${BASE_URL}/api/users/session`, {
+      const response = await fetch(
+        // `${BASE_URL}/api/users/session`, 
+        "http://localhost:8088/api/users/session",
+        {
         method: "GET",
         credentials: "include",
       });
@@ -50,7 +54,8 @@ const CreateRestaurantReview = () => {
   useEffect(() => {
     const fetchMountains = async () => {
       try {
-        const response = await fetch(`${BASE_URL}/api/mountains`);
+        // const response = await fetch(`${BASE_URL}/api/mountains`);
+        const response = await fetch("http://localhost:8088/api/mountains");
         if (!response.ok) {
           throw new Error("네트워크 응답이 정상적이지 않습니다.");
         }
@@ -133,7 +138,10 @@ const CreateRestaurantReview = () => {
           const fileImages = images.filter((img) => img instanceof File);
           fileImages.forEach((img) => formData.append("photos", img));
 
-          await fetch(`${BASE_URL}/api/restaurant-reviews/photos/upload`, {
+          await fetch(
+            // `${BASE_URL}/api/restaurant-reviews/photos/upload`,
+            `http://localhost:8088/api/restaurant-reviews/photos/upload`,
+            {
             method: "POST",
             body: formData,
           });

@@ -17,22 +17,25 @@ import "../styles/pages/mtRecommend.css";
 const MainHome = () => {
   const [mountains, setMountains] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+  // const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
   useEffect(() => {
     const fetchMountains = async () => {
       try {
-        const response = await fetch(`${BASE_URL}/api/mountains`);
-        const contentType = response.headers.get("content-type");
+        // const response = await fetch(`${BASE_URL}/api/mountains`);
+        // const contentType = response.headers.get("content-type");
 
-        if (contentType && contentType.includes("application/json")) {
-          const data = await response.json();
-          console.log("✅ 산 목록 데이터:", data);
-          setMountains(data);
-        } else {
-          const html = await response.text();
-          console.error("❌ JSON이 아님! HTML 응답:", html);
-        }
+        // if (contentType && contentType.includes("application/json")) {
+        //   const data = await response.json();
+        //   console.log("✅ 산 목록 데이터:", data);
+        //   setMountains(data);
+        // } else {
+        //   const html = await response.text();
+        //   console.error("❌ JSON이 아님! HTML 응답:", html);
+        // }
+        const response = await fetch("http://localhost:8088/api/mountains");
+        const data = await response.json();
+        setMountains(data);
 
         setIsLoading(false);
       } catch (error) {

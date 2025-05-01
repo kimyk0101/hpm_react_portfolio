@@ -13,11 +13,12 @@ function MountainMap() {
   const [mountains, setMountains] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+  // const BASE_URL = import.meta.env.VITE_API_BASE_URL;
   const KAKAO_MAP_KEY = import.meta.env.VITE_KAKAO_MAPS_API_KEY;
 
   useEffect(() => {
-    fetch(`${BASE_URL}/api/mountains`)
+    // fetch(`${BASE_URL}/api/mountains`)
+    fetch("http://localhost:8088/api/mountains")
       .then((response) => response.json())
       .then((data) => {
         setMountains(data);
@@ -222,7 +223,8 @@ function MountainMap() {
                 const mountainName = markerInfo.title;
                 try {
                   const response = await fetch(
-                    `${BASE_URL}/api/mountains/name/${mountainName}`
+                    // `${BASE_URL}/api/mountains/name/${mountainName}`
+                    `http://localhost:8088/api/mountains/name/${mountainName}`
                   );
                   const mountainId = await response.text();
                   if (mountainId) {

@@ -19,16 +19,20 @@ export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false); // 로그인 여부
   const [isLoading, setIsLoading] = useState(true); // 세션 확인 중인지 여부
   const [user, setUser] = useState(null); // 유저 정보 객체
-  const BASE_URL = import.meta.env.VITE_API_BASE_URL; // API 요청 주소
+  // const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
   //  페이지 로드될 때 세션 상태 확인
   //  세션이 있으면 로그인 상태, 없으면 로그아웃 상태로 설정
   useEffect(() => {
     const checkLoginStatus = async () => {
       try {
-        const res = await fetch(`${BASE_URL}/api/users/session`, {
-          credentials: "include", //  세션 쿠기 포함해서 요청
-        });
+        const res = await fetch(
+          // `${BASE_URL}/api/users/session`,
+          "http://localhost:8088/api/users/session",
+          {
+            credentials: "include", //  세션 쿠기 포함해서 요청
+          }
+        );
 
         console.log("세션 상태 응답, res");
 

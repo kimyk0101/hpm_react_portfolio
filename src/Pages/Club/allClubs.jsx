@@ -28,8 +28,9 @@ import Header from "../../layouts/Header/Header";
 import DefaultLayout from "../../layouts/DefaultLayout";
 
 const AllClubs = () => {
-  const BASE_URL = import.meta.env.VITE_API_BASE_URL;
-  const API_URL = `${BASE_URL}/api/clubs`;
+  // const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+  // const API_URL = `${BASE_URL}/api/clubs`;
+  const API_URL = "http://localhost:8088/api/clubs";
   const navigate = useNavigate();
   const [clubs, setClubs] = useState([]);
   const [error, setError] = useState(null);
@@ -51,7 +52,8 @@ const AllClubs = () => {
 
   const checkLoginStatus = async () => {
     try {
-      const response = await fetch(`${BASE_URL}/api/users/session`, {
+      // const response = await fetch(`${BASE_URL}/api/users/session`, {
+        const response = await fetch("http://localhost:8088/api/users/session", {
         method: "GET",
         credentials: "include",
       });

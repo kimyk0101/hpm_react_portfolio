@@ -12,21 +12,23 @@ function MountainList() {
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
-  const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+  // const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
   // API 호출 최적화 (병렬 처리 + 에러 핸들링)
   useEffect(() => {
     const fetchData = async () => {
       try {
         const { data: mountainsData } = await axios.get(
-          `${BASE_URL}/api/mountains`
+          // `${BASE_URL}/api/mountains`
+            "http://localhost:8088/api/mountains"
         );
 
         const mountainsWithImages = await Promise.all(
           mountainsData.map(async (mountain) => {
             try {
               const { data: imageData } = await axios.get(
-                `${BASE_URL}/api/mountains/${mountain.id}/image`
+                // `${BASE_URL}/api/mountains/${mountain.id}/image`
+                `http://localhost:8088/api/mountains/${mountain.id}/image`
               );
               return {
                 ...mountain,

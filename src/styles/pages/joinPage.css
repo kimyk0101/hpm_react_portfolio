@@ -151,6 +151,33 @@
   background-color: #5a7d48;
 }
 
+.email-check-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.email-check-wrapper > input {
+  flex-grow: 1;
+}
+
+.email-check-button {
+  white-space: nowrap;
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 6px;
+  color: #f0f8e0;
+  background-color: #8CAA63;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.email-check-button:hover {
+  background-color: #5a7d48;
+}
+
 .join-submit-button {
   margin-top: 50px;
   border-radius: 6px;

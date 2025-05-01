@@ -29,8 +29,9 @@ const MountainRecommend = () => {
   const [difficultyFilter, setDifficultyFilter] = useState("");
   const [timeFilter, setTimeFilter] = useState("");
   const [error, setError] = useState(null);
-  const BASE_URL = import.meta.env.VITE_API_BASE_URL;
-  const API_URL = `${BASE_URL}/api/mountain-recommends`;
+  // const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+  // const API_URL = `${BASE_URL}/api/mountain-recommends`;
+  const API_URL = "http://localhost:8088/api/mountain-recommends";
   const navigate = useNavigate();
 
   const fetchMountainRecommends = async () => {

@@ -23,7 +23,7 @@ const ClubComments = () => {
   const [isChatModalOpen, setIsChatModalOpen] = useState(false);
   const modalRef = useRef(null);
 
-  const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+  // const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
   // 페이지네이션 관련 상태 추가
   const [currentPage, setCurrentPage] = useState(1);
@@ -37,7 +37,8 @@ const ClubComments = () => {
     const fetchComments = async () => {
       try {
         const response = await fetch(
-          `${BASE_URL}/api/club-comments/clubs/${id}`
+          // `${BASE_URL}/api/club-comments/clubs/${id}`
+          `http://localhost:8088/api/club-comments/clubs/${id}`
         );
         if (!response.ok) {
           const errorData = await response.json();
@@ -86,7 +87,8 @@ const ClubComments = () => {
 
   const handleCommentSubmit = async () => {
     try {
-      const response = await fetch(`${BASE_URL}/api/club-comments`, {
+      // const response = await fetch(`${BASE_URL}/api/club-comments`, {
+      const response = await fetch(`http://localhost:8088/api/club-comments`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -107,7 +109,8 @@ const ClubComments = () => {
       }
 
       const updatedCommentsResponse = await fetch(
-        `${BASE_URL}/api/club-comments/clubs/${id}`
+        // `${BASE_URL}/api/club-comments/clubs/${id}`
+        `http://localhost:8088/api/club-comments/clubs/${id}`
       );
       const updatedCommentsData = await updatedCommentsResponse.json();
       setComments(
@@ -142,7 +145,8 @@ const ClubComments = () => {
   const handleUpdateComment = async () => {
     try {
       const response = await fetch(
-        `${BASE_URL}/api/club-comments/${editingCommentId}`,
+        // `${BASE_URL}/api/club-comments/${editingCommentId}`,
+        `http://localhost:8088/api/club-comments/${editingCommentId}`,
         {
           method: "PATCH",
           headers: {
@@ -163,7 +167,8 @@ const ClubComments = () => {
       }
 
       const updatedCommentsResponse = await fetch(
-        `${BASE_URL}/api/club-comments/clubs/${id}`
+        // `${BASE_URL}/api/club-comments/clubs/${id}`
+        `http://localhost:8088/api/club-comments/clubs/${id}`
       );
       const updatedCommentsData = await updatedCommentsResponse.json();
       setComments(
@@ -206,7 +211,8 @@ const ClubComments = () => {
   const handleDeleteComment = async (commentId) => {
     try {
       const response = await fetch(
-        `${BASE_URL}/api/club-comments/${commentId}`,
+        // `${BASE_URL}/api/club-comments/${commentId}`,
+        `http://localhost:8088/api/club-comments/${commentId}`,
         {
           method: "DELETE",
         }
@@ -220,7 +226,8 @@ const ClubComments = () => {
       }
 
       const updatedCommentsResponse = await fetch(
-        `${BASE_URL}/api/club-comments/clubs/${id}`
+        // `${BASE_URL}/api/club-comments/clubs/${id}`
+        `http://localhost:8088/api/club-comments/clubs/${id}`
       );
       const updatedCommentsData = await updatedCommentsResponse.json();
       setComments(

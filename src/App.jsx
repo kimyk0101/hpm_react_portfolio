@@ -1,29 +1,29 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import MainHome from "./pages/mainPage";
-import LoginPage from "./pages/loginPage";
-import JoinPage from "./pages/joinPage";
+import MainHome from "./Pages/MainPage";
+import LoginPage from "./Pages/LoginPage";
+import JoinPage from "./Pages/JoinPage";
 import Mypage from "./pages/Mypage/Mypage";
 import EditProfile from "./pages/Mypage/EditProfile/EditProfile";
 import SearchPage from "./pages/Search/SearchPage";
-import CommunityList from "./pages/community/community";
-import CreateCommunityPost from "./pages/community/createCommunityPost";
-import CommunityDetail from "./pages/community/communityDetail";
-import MountainReviewList from "./pages/mountainReview/mountainReview";
-import CreateMountainReview from "./pages/mountainReview/createMountainReview";
-import MountainReviewCard from "./pages/mountainReview/mountainReviewCard";
+import CommunityList from "./Pages/Community/Community";
+import CreateCommunityPost from "./Pages/Community/CreateCommunityPost";
+import CommunityDetail from "./Pages/Community/CommunityDetail";
+import MountainReviewList from "./Pages/MountainReview/MountainReview";
+import CreateMountainReview from "./Pages/MountainReview/CreateMountainReview";
+import MountainReviewCard from "./Pages/MountainReview/MountainReviewCard";
 import RestaurantReviewList from "./pages/restaurantReview/restaurantReview";
 import CreateRestaurantReview from "./pages/restaurantReview/createRestaurantReview";
 import RestaurantReviewCard from "./pages/restaurantReview/RestaurantReviewCard";
-import AllClubs from "./pages/club/allClubs";
-import ClubComments from "./pages/club/clubComments";
-import ChatSendbird from "./pages/club/chatSendbird";
-import MountainRecommend from "./pages/mountain/mountainRecommend"; // 추가
-import MountainResult from "./pages/mountain/mountainResult"; // 추가
+import AllClubs from "./Pages/Club/AllClubs";
+import ClubComments from "./Pages/Club/ClubComments";
+import ChatSendbird from "./Pages/Club/ChatSendbird";
+import MountainRecommend from "./Pages/Mountain/MountainRecommend"; // 추가
+import MountainResult from "./Pages/Mountain/MountainResult"; // 추가
 
-import MountainMap from "./pages/mountain/list_map";
-import MountainList from "./pages/mountain/mountainList";
-import MountainDetail from "./pages/mountain/mountainDetail";
+import MountainMap from "./Pages/Mountain/List_map";
+import MountainList from "./Pages/Mountain/MountainList";
+import MountainDetail from "./Pages/Mountain/MountainDetail";
 import "./styles/base/reset.css";
 
 function App() {

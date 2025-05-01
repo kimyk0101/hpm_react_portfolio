@@ -3,14 +3,17 @@ import React, { useState } from "react";
 const ReplyItem = ({ reply, user, onReplyUpdate }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editContent, setEditContent] = useState(reply.content);
-  const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+  // const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
   // 답글 수정 저장
   const handleSaveEdit = async () => {
     if (!editContent.trim()) return;
 
     try {
-      await fetch(`${BASE_URL}/api/restaurant-reviews/comments/${reply.id}`, {
+      await fetch(
+        // `${BASE_URL}/api/restaurant-reviews/comments/${reply.id}`, 
+        `http://localhost:8088/api/restaurant-reviews/comments/${reply.id}`,
+        {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -31,7 +34,10 @@ const ReplyItem = ({ reply, user, onReplyUpdate }) => {
     if (!window.confirm("답글을 삭제하시겠습니까?")) return;
 
     try {
-      await fetch(`${BASE_URL}/api/restaurant-reviews/comments/${reply.id}`, {
+      await fetch(
+        // `${BASE_URL}/api/restaurant-reviews/comments/${reply.id}`, 
+        `http://localhost:8088/api/restaurant-reviews/comments/${reply.id}`,
+        {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",

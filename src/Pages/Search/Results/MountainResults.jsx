@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const MountainResults = ({ data, submittedQuery }) => {
   const [images, setImages] = useState({});
-  const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+  // const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
   useEffect(() => {
     const fetchImages = async () => {
@@ -11,7 +11,8 @@ const MountainResults = ({ data, submittedQuery }) => {
       for (const mountain of data) {
         try {
           const response = await fetch(
-            `${BASE_URL}/api/mountains/${mountain.id}/image`
+            // `${BASE_URL}/api/mountains/${mountain.id}/image`
+             `http://localhost:8088/api/mountains/${mountain.id}/image`
           );
           if (response.ok) {
             const imgData = await response.json();

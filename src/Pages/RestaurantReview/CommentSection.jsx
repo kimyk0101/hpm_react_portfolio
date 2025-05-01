@@ -5,7 +5,7 @@ import CommentItem from "./CommentItem";
 const CommentSection = ({ rReviewId, user, onCommentChange }) => {
   const [comments, setComments] = useState([]);
   const [content, setContent] = useState("");
-  const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+  // const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
   // 댓글 데이터를 트리 구조로 변환하는 함수
   const nestComments = (comments) => {
@@ -34,7 +34,8 @@ const CommentSection = ({ rReviewId, user, onCommentChange }) => {
   const fetchComments = async () => {
     try {
       const res = await fetch(
-        `${BASE_URL}/api/restaurant-reviews/${rReviewId}/comments`
+        // `${BASE_URL}/api/restaurant-reviews/${rReviewId}/comments`
+         `http://localhost:8088/api/restaurant-reviews/${rReviewId}/comments`
       );
       const data = await res.json();
 
@@ -72,7 +73,8 @@ const CommentSection = ({ rReviewId, user, onCommentChange }) => {
 
     try {
       const res = await fetch(
-        `${BASE_URL}/api/restaurant-reviews/${rReviewId}/comments`,
+        // `${BASE_URL}/api/restaurant-reviews/${rReviewId}/comments`,
+        `http://localhost:8088/api/restaurant-reviews/${rReviewId}/comments`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

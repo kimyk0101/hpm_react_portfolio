@@ -26,7 +26,7 @@
 
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import ReactSelect from "react-dropdown-select"; // ReactSelect 임포트
+import ReactSelect from "react-dropdown-select"; 
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import ContentContainer from "../layouts/ContentContainer";
 import Header from "../layouts/Header/Header";
@@ -34,12 +34,14 @@ import DefaultLayout from "../layouts/DefaultLayout";
 import "../styles/pages/joinPage.css";
 
 const JoinPage = () => {
-  const BASE_URL = import.meta.env.VITE_API_BASE_URL;
-  const API_USER_URL = `${BASE_URL}/api/users`;
+  // const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+  // const API_USER_URL = `${BASE_URL}/api/users`;
+  const API_USER_URL = `http://localhost:8088/api/users`;
 
   const [allUserData, setAllUserData] = useState([]);
   const [isUserIdAvailable, setIsUserIdAvailable] = useState(null);
   const [isUserNicknameAvailable, setIsUserNicknameAvailable] = useState(null);
+  const [isEmailAvailable, setIsEmailAvailable] = useState(null);
   const [passwordStrength, setPasswordStrength] = useState("");
   const [passwordMatch, setPasswordMatch] = useState(null);
   const [passwordColor, setPasswordColor] = useState("black"); // 기본 색상은 black
@@ -62,7 +64,7 @@ const JoinPage = () => {
     email: "",
     address: "",
     addressDetail: "", // 상세 주소
-    updateDate: new Date().toISOString(), // 현재 날짜로 초기화
+    // updateDate: new Date().toISOString(), // 현재 날짜로 초기화
   });
 
   useEffect(() => {
@@ -77,7 +79,8 @@ const JoinPage = () => {
 
   //  닉네임 중복 확인
   const checkUserNicknameAvailability = async (nickname) => {
-    const requestUrl = `${BASE_URL}/api/users/check-user-nickname?nickname=${nickname}`;
+    // const requestUrl = `${BASE_URL}/api/users/check-user-nickname?nickname=${nickname}`;
+    const requestUrl = `http://localhost:8088/api/users/check-user-nickname?nickname=${nickname}`;
     console.log("닉네임 중복 확인 요청 URL:", requestUrl);
 
     try {
@@ -99,7 +102,8 @@ const JoinPage = () => {
 
   //  아이디 중복 확인
   const checkUserIdAvailability = async () => {
-    const requestUrl = `${BASE_URL}/api/users/check-user-id?userId=${formData.userId}`;
+    // const requestUrl = `${BASE_URL}/api/users/check-user-id?userId=${formData.userId}`;
+    const requestUrl = `http://localhost:8088/api/users/check-user-id?userId=${formData.userId}`;
     console.log("아이디 중복 확인 요청 URL:", requestUrl);
 
     try {
@@ -122,6 +126,35 @@ const JoinPage = () => {
     } catch (error) {
       console.error("아이디 중복 확인 오류:", error);
       alert(`아이디 중복 확인 중 오류가 발생했습니다: ${error.message}`);
+    }
+  };
+
+  //  이메일 중복 확인
+  const checkEmailAvailability = async () => {
+    // const requestUrl = `${BASE_URL}/api/users/check-user-email?email=${formData.email}`;
+    const requestUrl = `http://localhost:8088/api/users/check-user-email?email=${formData.email}`;
+    console.log("이메일 중복 확인 요청 URL:", requestUrl);
+
+    try {
+      const response = await fetch(requestUrl);
+
+      if (!response.ok) {
+        throw new Error(
+          `서버 응답 오류: ${response.statusText} (상태 코드: ${response.status})`
+        );
+      }
+
+      const isTaken = await response.json();
+      setIsEmailAvailable(isTaken);
+
+      if (isTaken) {
+        alert("사용 가능한 이메일입니다.");
+      } else {
+        alert("이미 사용 중인 이메일입니다.");
+      }
+    } catch (error) {
+      console.error("이메일 중복 확인 오류:", error);
+      alert(`이메일 중복 확인 중 오류가 발생했습니다: ${error.message}`);
     }
   };
 
@@ -199,7 +232,7 @@ const JoinPage = () => {
 
   //  생년월일 입력칸 날짜 지정
   const currentYear = new Date().getFullYear();
-  const years = Array.from({ length: currentYear - 1899 }, (_, i) => 1900 + i);
+  const years = Array.from({ length: currentYear - 1899 }, (_, i) => currentYear - i);
   const months = Array.from({ length: 12 }, (_, i) => i + 1);
   const days = Array.from({ length: 31 }, (_, i) => i + 1);
 
@@ -274,20 +307,22 @@ const JoinPage = () => {
 
     // 생년월일 검사 (포함)
     const { birthYear, birthMonth, birthDay } = formData;
-    if (!birthYear || !birthMonth || !birthDay) {
-      errors.push("생년월일을 모두 선택해주세요.");
-    } else {
-      // 연, 월, 일이 올바른지 검사
-      const isValidDate = !isNaN(
-        new Date(
-          `${birthYear}-${String(birthMonth).padStart(2, "0")}-${String(
-            birthDay
-          ).padStart(2, "0")}` // YYYY-MM-DD 형식으로 변환
-        ).getTime()
-      );
-
-      if (!isValidDate) {
-        errors.push("올바른 생년월일을 입력해주세요.");
+    if (birthYear || birthMonth || birthDay) {
+      // 하나라도 입력됐다면 모두 입력됐는지 확인
+      if (!birthYear || !birthMonth || !birthDay) {
+        errors.push("생년월일을 모두 선택해주세요.");
+      } else {
+        // 유효한 날짜인지 검사
+        const isValidDate = !isNaN(
+          new Date(
+            `${birthYear}-${String(birthMonth).padStart(2, "0")}-${String(
+              birthDay
+            ).padStart(2, "0")}`
+          ).getTime()
+        );
+        if (!isValidDate) {
+          errors.push("올바른 생년월일을 입력해주세요.");
+        }
       }
     }
 
@@ -335,6 +370,10 @@ const JoinPage = () => {
       alert("닉네임 중복 확인이 필요합니다.");
       return;
     }
+    if (isEmailAvailable === false) {
+      alert("이메일 중복 확인이 필요합니다.");
+      return;
+    }
 
     // 생년월일 체크
     const { birthYear, birthMonth, birthDay } = formData;
@@ -351,19 +390,14 @@ const JoinPage = () => {
     const fullAddress = `${formData.address} ${formData.addressDetail}`;
 
     // 전송할 데이터 필터링
-    const {
-      userId,
-      phoneNumber,
-      updateDate,
-      ...formDataToSend
-    } = formData;
-
+    const { userId, phoneNumber,  ...formDataToSend } = formData;
+    // updateDate,
     const formDataToSendWithBirthAndAddress = {
       ...formDataToSend,
-      birth,
+      birth: birth ?? null,
       user_id: userId,
       phone_number: phoneNumber,
-      update_date: updateDate,
+      // update_date: updateDate,
       address: fullAddress,
     };
 
@@ -438,7 +472,7 @@ const JoinPage = () => {
           />
         </ContentContainer>
       </header>
-      
+
       <DefaultLayout>
         <div className="login-body">
           <div className="join-container">
@@ -478,7 +512,7 @@ const JoinPage = () => {
                   type="text"
                   name="nickname"
                   className="form-input"
-                  placeholder="2~10자 문자, 숫자 조합으로 입력하세요"
+                  placeholder="2~10자 영문, 숫자 조합으로 입력하세요"
                   value={formData.nickname}
                   onChange={(e) => {
                     setFormData({ ...formData, nickname: e.target.value });
@@ -578,6 +612,33 @@ const JoinPage = () => {
                     {passwordMatch ? "✅ 비밀번호 일치" : "❌ 비밀번호 불일치"}
                   </span>
                 )}
+                <label>
+                  이메일<span className="join-form-required">*</span>
+                </label>
+                <div className="email-check-wrapper">
+                  <input
+                    type="email"
+                    className="form-input"
+                    placeholder="이메일을 입력하세요"
+                    value={formData.email}
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
+                    required
+                  />
+                  <button
+                    type="button"
+                    onClick={checkEmailAvailability}
+                    className="email-check-button"
+                  >
+                    중복 확인
+                  </button>
+                </div>
+                {isEmailAvailable !== null && (
+                  <span style={{ color: isEmailAvailable ? "green" : "red" }}>
+                    {isEmailAvailable ? "✅ 사용 가능" : "❌ 사용 불가"}
+                  </span>
+                )}
                 <label>생년월일</label>
                 <div className="birth-select">
                   <ReactSelect
@@ -631,16 +692,6 @@ const JoinPage = () => {
                   value={formData.phoneNumber}
                   onChange={(e) =>
                     setFormData({ ...formData, phoneNumber: e.target.value })
-                  }
-                />
-                <label>이메일</label>
-                <input
-                  type="email"
-                  className="form-input"
-                  placeholder="이메일을 입력하세요"
-                  value={formData.email}
-                  onChange={(e) =>
-                    setFormData({ ...formData, email: e.target.value })
                   }
                 />
                 <label>주소</label>

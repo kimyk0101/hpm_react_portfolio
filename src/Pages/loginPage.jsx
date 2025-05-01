@@ -6,8 +6,9 @@ import Header from "../layouts/Header/Header";
 import DefaultLayout from "../layouts/DefaultLayout";
 import "../styles/pages/loginPage.css";
 
-const BASE_URL = import.meta.env.VITE_API_BASE_URL;
-const API_URL = `${BASE_URL}/api/users/login`;
+// const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+// const API_URL = `${BASE_URL}/api/users/login`;
+const API_URL = "http://localhost:8088/api/users/login";
 
 const Login = () => {
   const [loginData, setLoginData] = useState({

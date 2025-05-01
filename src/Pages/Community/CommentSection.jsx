@@ -7,7 +7,7 @@ const CommentSection = ({ communityId, user, onCommentChange, postAuthorId }) =>
   const [comments, setComments] = useState([]);
   const [content, setContent] = useState("");
 
-  const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+  // const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
   // 댓글 데이터를 트리 구조로 변환하는 함수
   const nestComments = (comments) => {
@@ -36,7 +36,8 @@ const CommentSection = ({ communityId, user, onCommentChange, postAuthorId }) =>
   const fetchComments = async () => {
     try {
       const res = await fetch(
-        `${BASE_URL}/api/communities/${communityId}/comments`
+        // `${BASE_URL}/api/communities/${communityId}/comments`
+        `http://localhost:8088/api/communities/${communityId}/comments`
       );
       const data = await res.json();
 
@@ -76,7 +77,8 @@ const CommentSection = ({ communityId, user, onCommentChange, postAuthorId }) =>
 
     try {
       const res = await fetch(
-        `${BASE_URL}/api/communities/${communityId}/comments`,
+        // `${BASE_URL}/api/communities/${communityId}/comments`,
+        `http://localhost:8088/api/communities/${communityId}/comments`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

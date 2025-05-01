@@ -7,13 +7,14 @@ const CommunityComments = () => {
   const [comments, setComments] = useState([]);
   const [loading, setLoading] = useState(true); // 로딩 표시
   const [error, setError] = useState(null); // 에러 처리
-  const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+  // const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
   useEffect(() => {
     const fetchComments = async () => {
       try {
         const res = await fetch(
-          `${BASE_URL}/api/communities/comments/my/${user.id}`,
+          // `${BASE_URL}/api/communities/comments/my/${user.id}`,
+          `http://localhost:8088/api/communities/comments/my/${user.id}`,
           {
             method: "GET",
             headers: {

@@ -13,7 +13,7 @@ const ReplyInput = ({
 
   const textareaRef = useRef(null); // 자동 높이 조정용 참조
 
-  const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+  // const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
   // 날짜를 "yyyy-MM-dd HH:mm:ss" 형식으로 변환하는 함수
   const formatDate = (date) => {
@@ -50,7 +50,8 @@ const ReplyInput = ({
 
     try {
       const res = await fetch(
-        `${BASE_URL}/api/mountain-reviews/${mReviewId}/comments`,
+        // `${BASE_URL}/api/mountain-reviews/${mReviewId}/comments`,
+        `http://localhost:8088/api/mountain-reviews/${mReviewId}/comments`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
