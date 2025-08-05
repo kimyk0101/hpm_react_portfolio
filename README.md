@@ -1,12 +1,34 @@
-# React + Vite
+# 🏔️ 하이등산 (HPMountain) – 포트폴리오 수정 버전
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> 기존 **하이펜타M 팀 프로젝트**를 기반으로 개인 포트폴리오 용도로 일부 기능을 보완한 개인 수정 프로젝트입니다.  
+> 로그인 보안 강화를 중심으로, 사용자 정보 관련 기능을 확장하였습니다.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 수정 목적
 
-## Expanding the ESLint configuration
+- 포트폴리오 제출 및 기술 숙련도 향상을 위해 개인적으로 기능 일부 수정
+- 팀 레포지토리 보존을 위해 별도 복제본에서 진행
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 수정/추가된 기능
+
+| 기능 | 설명 |
+|------|------|
+| 비밀번호 암호화 적용 | Spring Security + BCrypt 해시 적용 |
+| 아이디/비밀번호 찾기 | 이메일 인증 기반 ID 찾기, 임시 비밀번호 발급 기능 구현 |
+
+---
+
+## 미적용 항목
+
+- 별도 배포 진행하지 않음 (로컬 테스트 중심)
+- 관리자 기능, 알림 기능, 채팅 WebSocket 전환 등은 원본 그대로 유지
+
+---
+
+## 참고
+
+> 전체 기능, 폴더 구조 및 기술 스택은 원본 프로젝트와 동일합니다.  
+> 아래 링크를 통해 [하이등산 팀 프로젝트 README](https://github.com/kimyk0101/hpm_react/blob/master/README.md)를 참고하세요.
